@@ -1,4 +1,5 @@
 const assert = require('chai').assert;
+const helpers = require('../lib/helpers');
 const Queue = require('../lib/queue');
 
 describe('Queue', () => {
@@ -144,10 +145,10 @@ describe('Queue', () => {
             
             for (let i = 0, max = 5 * n; i < max; i++) {
                 // pick random function to call
-                let f = functions[getRandomInt(2)];
+                let f = functions[helpers.getRandomInt(0, 2)];
                 
                 try {
-                    q[f](getRandomInt(n));
+                    q[f](helpers.getRandomInt(0, n));
                 } catch (e) {
                     assert.equal(e, 'Error: Invalid operation: Queue is empty');
                 }
@@ -155,7 +156,3 @@ describe('Queue', () => {
         });
     });
 });
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
