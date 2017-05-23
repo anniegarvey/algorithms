@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/anniegarvey/algorithms#readme",
   "dependencies": {
-    "node-fetch": "^1.6.3"
+    "node-fetch": "^1.6.3",
+    "sinon": "^2.2.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

@@ -1,4 +1,5 @@
 const assert = require('chai').assert;
+const helpers = require('../lib/helpers');
 const Stack = require('../lib/stack');
 
 
@@ -137,11 +138,11 @@ describe('Stack', () => {
             
             for (let i = 0, max = 5 * n; i < max; i++) {
                 // pick random function to call
-                let f = functions[getRandomInt(2)];
+                let f = functions[helpers.getRandomInt(0, 2)];
                 
                 try {
                     // diff funcs have diff number of params, but will ignore extras anyway
-                    s[f](getRandomInt(n));
+                    s[f](helpers.getRandomInt(0, n));
                 } catch (e) {
                     assert.equal(e, 'Error: Invalid operation: Stack is empty');
                 }
@@ -171,8 +172,3 @@ function averageTime(fn, sampleSize) {
     
     return timeSum / sampleSize;
 }
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-

@@ -1,4 +1,5 @@
 const assert = require('chai').assert;
+const helpers = require('../lib/helpers');
 const UnionFind = require('../lib/union-find');
 
 describe('UnionFind', () => {
@@ -136,9 +137,9 @@ describe('UnionFind', () => {
             
             for (let i = 0, max = 5 * n; i < max; i++) {
                 // pick random function to call
-                let f = functions[getRandomInt(2)];
+                let f = functions[helpers.getRandomInt(0, 2)];
                 
-                uf[f](getRandomInt(n), getRandomInt(n));
+                uf[f](helpers.getRandomInt(0, n), helpers.getRandomInt(0, n));
             }
         });
     });
@@ -164,8 +165,4 @@ function averageTime(fn, sampleSize) {
     }
     
     return timeSum / sampleSize;
-}
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
 }
