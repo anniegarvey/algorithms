@@ -38,6 +38,12 @@ describe('primes', () => {
             primes.sieveUpTo(97);
             assert.include(primes.primes(), 97);
         });
+        
+        it('correctly filters out first item in sieve when non-prime', () => {
+            primes.sieveUpTo(20);
+            primes.sieveUpTo(30);
+            assert.notInclude(primes.primes(), 21);
+        });
 
         it('does nothing if parameter <= curr max prime');
     });
